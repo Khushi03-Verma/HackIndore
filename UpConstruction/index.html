@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>E-Office : IMC</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="imc_img.webp" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <style>
+    /* Chatbot Icon Styles */
+    .chatbot-icon {
+        position: fixed;
+        bottom: 10px;
+        left: 12px;
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .chatbot-icon img {
+        width: 70%;
+        height: 70%;
+    }
+
+    /* Chatbot Popup Styles */
+    .chatbot-popup {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 350px;
+        height: 400px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .chatbot-header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .chatbot-body {
+        padding: 10px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .chatbot-footer {
+        padding: 10px;
+    }
+
+    .chatbot-footer input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .profile-icon {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+}
+
+.profile-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.profile-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.profile-icon img {
+  cursor: pointer;
+}
+
+.tender-margin{
+  margin: 2rem;
+}
+
+</style>
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+  
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="imc_img.webp" alt="IMC logo" class="image-container">
+        <h1>Indore Municipal Corporation</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#tenders">Tenders</a></li>
+          <li class="dropdown"><a href="#services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#"></a></li>
+              <li class="dropdown"><a href="#"><span>Payment</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Water tax</a></li>
+                  <li><a href="#">Property Tax</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Apply for Certificates</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="birthcert.html">Birth Certificate</a></li>
+                  <li><a href="#">Marriage Certificate</a></li>
+                  <li><a href="#">Death Certificate</a></li>
+                  <li><a href="noc.html">NOC Certificate Application</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Upload/View Certificates</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="cvt (1).html">Birth Certificate</a></li>
+                  <li><a href="cvt (1).html">Marriage Certificate</a></li>
+                  <li><a href="cvt (1).html">Death Certificate</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Licenses/Approvals</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="trade.html">Trade License</a></li>
+                  <li><a href="building.html">Building Permit</a></li>
+                  <li><a href="food.html">Food License</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#constructions">News/Notices</a></li>
+          <li><a href="#recent-blog-posts">Vacancies</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <!-- Profile Icon -->
+      <div id="profile-icon" class="profile-icon">
+        <i class="fas fa-user-circle" onclick="toggleProfileMenu()"></i>
+        <div id="profile-menu" class="profile-menu">
+          <a href="edit-profile.html">Edit Profile</a>
+          <a href="logout.html">Log Out</a>
+        </div>
+      </div>      
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6 text-center">
+              <h2>Welcome to Indore Municipal Corporation</h2>
+              <p style="font-size: 2rem;">Digital Innovation for a Clean and Green Future</p>
+              <a href="/homepage/index (4).html" class="btn-get-started"><strong>Login/SignUp</strong></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item">
+          <img src="assets/img/homeImg1.jpg" alt="">
+        </div>
+
+        <div class="carousel-item active">
+          <img src="assets/img/home2.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="assets/img/home3.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="assets/img/home4.avif" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="assets/img/home5.jpeg" alt="">
+        </div>
+
+    
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+
+     <!-- Tenders Section -->
+    <section id="tenders">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Tenders</h2>
+        <p>Notices issued by IMC</p>
+      </div>
+      <div class="row row-cols-3 g-4 tender-margin">
+        <div class="col">
+          <div class="card">
+            <img src="assets/img/road.jfif" class="card-img-top" alt="Hollywood Sign on The Hill">
+            <div class="card-body">
+              <h5 class="card-title">Tender For Road Construction</h5>
+              <p class="card-text">
+                A tender for road construction invites contractors to submit bids for building or repairing roads. The process involves publishing a tender notice, providing detailed project specifications, and evaluating bids based on criteria such as cost, quality, and completion time to ensure the best value and compliance with standards.
+              </p>
+              <button class="btn btn-primary" id="redirectButton">Apply</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="assets/img/water.jpg" class="card-img-top" alt="Palm Springs Road">
+            <div class="card-body">
+              <h5 class="card-title">Tender For Water Pipes</h5>
+              <p class="card-text">
+                A tender for water pipes invites suppliers to submit bids to provide specified water pipes for a project. The process involves publishing a tender notice, detailed bid submission guidelines, and evaluating bids based on predefined criteria to ensure quality and cost-effectiveness.
+              </p>
+              <button class="btn btn-primary" id="redirectButton1">Apply</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="assets/img/sewage.jpg" class="card-img-top" alt="Los Angeles Skyscrapers">
+            <div class="card-body">
+              <h5 class="card-title">Tender For Sewage Management</h5>
+              <p class="card-text">A tender for sewage management invites firms to submit bids for the construction, maintenance, or upgrade of sewage systems. The process includes detailed project requirements, submission guidelines, and evaluation criteria to ensure effective and sustainable sewage solutions.</p>
+                <button class="btn btn-primary" id="redirectButton2">Apply</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="assets/img/web.jfif" class="card-img-top card-img" alt="Skyscrapers">
+            <div class="card-body">
+              <h5 class="card-title">Tender For websites</h5>
+              <p class="card-text">A tender for website development for the Indore Municipal Corporation invites bids from developers to design, build, and maintain the corporation's website. The process involves publishing a notice, outlining project requirements, and evaluating bids based on technical expertise, cost, and proposed functionality to ensure an effective online presence.
+              </p>
+              <button class="btn btn-primary" id="redirectButton3">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+    <!-- Constructions Section -->
+    <section id="constructions" class="constructions section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Notices</h2>
+        <p>Notices issued by IMC</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                  <div class="card-bg"><img src="notice.png" alt=""></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Notice 1</h4>
+                    <p style="color: black;">Application Format- Special recruitment drive for DivyangJan. last date of application 5th August 2024</p>
+                    <button id="openPdfBtn1" class="btn btn-primary mt-3">View Notice</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                  <div class="card-bg"><img src="notice.png" alt=""></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Notice 2</h4>
+                    <p style="color: black;"> Corrigendum in news paper Release - Special recruitment drive for DivyangJan. last date of application 5th August 2024</p>
+                    <button id="openPdfBtn2" class="btn btn-primary mt-3">View Notice</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                  <div class="card-bg"><img src="notice.png" alt=""></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Notice 3</h4>
+                    <p style="color: black;" >Corrigendum - Special recruitment drive for DivyangJan. last date of application 5th August 2024।</p>
+                    <button id="openPdfBtn3" class="btn btn-primary mt-3">View Notice</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                  <div class="card-bg"><img src="notice.png" alt=""></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Notice 4</h4>
+                    <p style="color: black;">Special recruitment drive for DivyangJan. last date of application 5th August 2024</p>
+                    <button id="openPdfBtn4" class="btn btn-primary mt-3">View Notice</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Constructions Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Digital Services provided by IMC, Indore</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-hands-holding-child"></i>
+              </div>
+              <h3>Birth Certificate</h3>
+              <p>Obtain essential certificates including birth, marriage, and death, as well as apply for NOC certificates.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-ring"></i>
+              </div>
+              <h3>Marriage Certificate</h3>
+              <p>Obtain essential certificates including birth, marriage, and death, as well as apply for NOC certificates.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-stamp"></i>
+              </div>
+              <h3>Death Certificate</h3>
+              <p>Obtain essential certificates including birth, marriage, and death, as well as apply for NOC certificates.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-water"></i>
+              </div>
+              <h3>Water Tax</h3>
+              <p>Efficiently manage and pay water and property taxes online.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              <h3>Property Tax</h3>
+              <p>Efficiently manage and pay water and property taxes online.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <h3>Licenses/Approvals</h3>
+              <p>Acquire necessary licenses and approvals for trade, building permits, and food establishments.</p>
+              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Photo Gallery</h2>
+        <p>>A visual journey through the vibrant and dynamic city. Explore the rich cultural heritage, bustling markets, and serene landscapes that make Indore a unique blend of tradition and modernity. From historic landmarks to contemporary attractions, our collection of images captures the essence of this beautiful city.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-remodeling">cleanliness</li>
+            <li data-filter=".filter-construction">infrastructure</li>
+            <li data-filter=".filter-repairs">nature</li>
+            <li data-filter=".filter-design">development</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery1.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>App 1</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/remodeling-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery2.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Product 1</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/construction-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-repairs">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery3.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Branding 1</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/repairs-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery4.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Books 1</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/design-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery5.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>App 2</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/remodeling-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery6.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Product 2</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/construction-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-repairs">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery7.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Branding 2</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/repairs-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery8.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Books 2</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/design-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery9.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>App 3</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/remodeling-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/gallery10.jfif" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Product 3</h4>
+                  <p>Lorem ipsum, dolor sit amet consectetur</p>
+                  <a href="assets/img/projects/construction-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+        </div>
+      </div>
+    </section><!-- /Projects Section -->
+
+
+    <!-- Testimonials Section -->
+
+    <!-- Recent Blog Posts Section -->
+    <section id="recent-blog-posts" class="recent-blog-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Vacancies(Internship/jobs)</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
+                <span class="post-date">December 12</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
+                <span class="post-date">July 17</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="post-item position-relative h-100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="">
+                <span class="post-date">September 05</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Recent Blog Posts Section -->
+
+  </main>
+
+
+  <!-- Chatbot -->
+  <div class="chatbot-icon" id="chatbotIcon">
+    <img src="chatbot_image.png" alt="Chatbot">
+</div>
+
+<div class="chatbot-popup" id="chatbotPopup">
+  <div class="col-lg-5">
+      <form action="forms/quote.php" method="post" class="php-email-form">
+          <h3>Get a quote</h3>
+          <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero park flows.</p>
+          <div class="row gy-3">
+
+              <div class="col-12">
+                  <input type="text" name="name" class="form-control" placeholder="Name" required>
+              </div>
+
+              <div class="col-12">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
+              </div>
+
+              <div class="col-12">
+                  <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+              </div>
+
+              <div class="col-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+              </div>
+
+              <div class="col-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+
+                  <button type="submit">Get a quote</button>
+              </div>
+
+          </div>
+      </form>
+  </div>
+</div>
+
+        <!-- Faq Section -->
+        <section id="faq" class="faq section">
+          <div class="container">
+              <div class="faq-wrapper">
+                  <div class="faq-header">
+                      <h3><span>Frequently Asked </span><br><strong>Questions</strong></h3>
+                  </div>
+                  <div class="faq-content">
+                      <div class="faq-item">
+                          <input type="checkbox" id="faq1" class="faq-toggle">
+                          <label for="faq1">
+                              <h3><span class="num">1.</span> <span>What is the role of Nagar Nigam Indore?</span></h3>
+                          </label>
+                          <div class="faq-text">
+                              <p>Nagar Nigam Indore is responsible for providing municipal services such as sanitation, water supply, street lighting, road maintenance, and waste management within the city limits.</p>
+                          </div>
+                      </div><!-- End Faq item-->
+                      <div class="faq-item">
+                          <input type="checkbox" id="faq2" class="faq-toggle">
+                          <label for="faq2">
+                              <h3><span class="num">2.</span> <span>What are the working hours of Nagar Nigam Indore?</span></h3>
+                          </label>
+                          <div class="faq-text">
+                              <p>The working hours are typically from 10:00 AM to 5:00 PM, Monday to Saturday. Offices are closed on Sundays and public holidays.</p>
+                          </div>
+                      </div><!-- End Faq item-->
+                      <div class="faq-item">
+                          <input type="checkbox" id="faq3" class="faq-toggle">
+                          <label for="faq3">
+                              <h3><span class="num">3.</span> <span>Where is the main office of Nagar Nigam Indore located?</span></h3>
+                          </label>
+                          <div class="faq-text">
+                              <p>The main office is located at Palika Plaza, M.G. Road, Indore, Madhya Pradesh.</p>
+                          </div>
+                      </div><!-- End Faq item-->
+                      <div class="faq-item">
+                          <input type="checkbox" id="faq4" class="faq-toggle">
+                          <label for="faq4">
+                              <h3><span class="num">4.</span> <span>How can I contact Nagar Nigam Indore?</span></h3>
+                          </label>
+                          <div class="faq-text">
+                              <p>You can contact them via their helpline number, email, or through the contact form on their official website.</p>
+                          </div>
+                      </div><!-- End Faq item-->
+                      <div class="faq-item">
+                          <input type="checkbox" id="faq5" class="faq-toggle">
+                          <label for="faq5">
+                              <h3><span class="num">5.</span> <span>How can I apply for a trade license?</span></h3>
+                          </label>
+                          <div class="faq-text">
+                              <p>Applications for trade licenses can be submitted online on the Nagar Nigam Indore website or at the municipal office.</p>
+                          </div>
+                      </div><!-- End Faq item-->
+                  </div>
+              </div>
+          </div>
+      </section><!-- /Faq Section -->
+
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">IMC</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <!-- <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p> -->
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href="https://x.com/swachhindore"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/SwachhIndore/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/swachhindore/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/imcindore/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Hic solutasetp</h4>
+          <ul>
+            <li><a href="#">Molestiae accusamus iure</a></li>
+            <li><a href="#">Excepturi dignissimos</a></li>
+            <li><a href="#">Suscipit distinctio</a></li>
+            <li><a href="#">Dilecta</a></li>
+            <li><a href="#">Sit quas consectetur</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">IMC</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="#">HackGirls</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('chatbotIcon').addEventListener('click', function () {
+        var popup = document.getElementById('chatbotPopup');
+        if (popup.style.display === 'none' || popup.style.display === '') {
+            popup.style.display = 'flex';
+        } else {
+            popup.style.display = 'none';
+        }
+    });
+
+    document.getElementById('openPdfBtn1').addEventListener('click', function() {
+            window.open('notice1.pdf', '_blank');
+        });
+
+      document.getElementById('openPdfBtn2').addEventListener('click', function() {
+          window.open('notice2.pdf', '_blank');
+      });
+
+      document.getElementById('openPdfBtn3').addEventListener('click', function() {
+            window.open('notice3.pdf', '_blank');
+        });
+
+      document.getElementById('openPdfBtn4').addEventListener('click', function() {
+          window.open('notice4.pdf', '_blank');
+      });
+
+      document.getElementById('redirectButton').addEventListener('click', function() {
+        window.location.href = 'tender.html'; 
+      });
+      document.getElementById('redirectButton1').addEventListener('click', function() {
+        window.location.href = 'tender.html';
+      });
+      document.getElementById('redirectButton2').addEventListener('click', function() {
+        window.location.href = 'tender.html';
+      });
+      document.getElementById('redirectButton3').addEventListener('click', function() {
+        window.location.href = 'tender.html';
+      });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="trial.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Portal - Municipal Corporation Indore</h1>
+        <nav>
+            <button onclick="showSection('viewEmployees')">View Employees</button>
+            <button onclick="showSection('addEmployee')">Add Employee</button>
+            <button onclick="showSection('removeEmployee')">Remove Employee</button>
+            <button onclick="showSection('assignTask')">Assign Task</button>
+            <button onclick="showSection('approveTenders')">Approve Tenders</button>
+            <button onclick="showSection('viewTaskStatus')">View Task Status</button>
+        </nav>
+        
+        <div id="viewEmployees" class="section">
+            <h2>View All Employees</h2>
+            <table id="employeeTable">
+                <!-- Employee details will be populated here -->
+            </table>
+        </div>
+        
+        <div id="addEmployee" class="section" style="display:none;">
+            <h2>Add Employee</h2>
+            <form id="addEmployeeForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" required><br>
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required><br>
+                <button type="button" onclick="addEmployee()">Add Employee</button>
+            </form>
+        </div>
+        
+        <div id="removeEmployee" class="section" style="display:none;">
+            <h2>Remove Employee</h2>
+            <form id="removeEmployeeForm">
+                <label for="employeeIdRemove">Employee ID:</label>
+                <input type="text" id="employeeIdRemove" name="employeeIdRemove" required><br>
+                <button type="button" onclick="removeEmployee()">Remove Employee</button>
+            </form>
+        </div>
+        
+        <div id="assignTask" class="section" style="display:none;">
+            <h2>Assign Task</h2>
+            <form id="assignTaskForm">
+                <label for="employeeIdAssign">Employee ID:</label>
+                <input type="text" id="employeeIdAssign" name="employeeIdAssign" required><br>
+                <label for="employeeIdAssign">Department:</label>
+                <input type="text" id="employeeIdAssign" name="employeeIdAssign" required><br>
+                <label for="taskDescription">Task Description:</label>
+                <input type="text" id="taskDescription" name="taskDescription" required><br>
+                <button type="button" onclick="assignTask()">Assign Task</button>
+            </form>
+        </div>
+        
+        <div id="approveTenders" class="section" style="display:none;">
+            <h2>Approve Tenders</h2>
+            <table id="tenderTable">
+                <!-- Tenders will be populated here -->
+            </table>
+            <button type="button" onclick="approveSelectedTenders()">Approve Selected Tenders</button>
+        </div>
+        
+        <div id="viewTaskStatus" class="section" style="display:none;">
+            <h2>View Task Status</h2>
+            <table id="taskStatusTable">
+                <!-- Task statuses will be populated here -->
+            </table>
+        </div>
+    </div>
+    
+    <script src="trial.js"></script>
+</body>
+</html>
